@@ -1,3 +1,6 @@
+# 计算等位基因频率
+vcftools --gzvcf irtysh-other.NC_056617.1.phasing.vcf.gz --freq --out irtysh-other.NC_056617.1
+
 library(scatterpie)
 library(ggplot2)
 
