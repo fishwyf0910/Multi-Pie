@@ -3,12 +3,12 @@ library(ggplot2)
 
 # 读入数据
 setwd("E:\\Rworkspace\\allele-fre")
-df <- read.table("allele-gre.txt", header = TRUE, sep = "\t")
+df <- read.table("allele-fre.txt", header = TRUE, sep = "\t")
 
 # 查看数据
 df
    x y      A      B region
-1     2   2 1.000000 0.000000      1
+1     2   2 1.000000 0.000000      1   # x,y表示的是不同群体的位置坐标，A,B表示的是ref，alt的allele-frq。所以做表的时候，把想展示在上面的群体，y设置成最大。同样在定义df3的时候，最上面的群头写在最后。
 2     4   2 1.000000 0.000000      2
 3     6   2 0.833000 0.167000      3
 4     8   2 1.000000 0.000000      4
@@ -53,6 +53,8 @@ df3<-data.frame(
 )
 
 # 画图
+pdf("allele-fre.pdf",width=10,height=6)
+
 ggplot()+
   geom_scatterpie(data=df,
                   aes(x,y,group=region,r=0.9),
@@ -66,3 +68,5 @@ ggplot()+
   geom_label(data=df2,aes(x=x+0.1,y=y,label=label),
              fill="#e64b35")+
   geom_text(data=df3,aes(x=x,y=y,label=label))
+
+dev.off()
