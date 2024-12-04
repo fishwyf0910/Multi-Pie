@@ -52,7 +52,7 @@ df2<-data.frame(
 
 df3<-data.frame(
   x=16, y=c(2,4,6,8),
-  label=c("south","Irtysh-south","Irtysh-other","north")
+  label=c("ref-north","Irtysh-other","Irtysh-south","ref-south")
 )
 
 # 画图
